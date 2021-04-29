@@ -53,12 +53,22 @@
                                 </li>
                             @endif
                         @else
+                            <div class="container">
+                            <a class="nav-link toggle" href="/profile/{{ Auth::user()->profile->user_id }}">
+                                <div><img src="/svg/logoo.png" style="height: 40px; border-right: 1px solid #333;" class="pl-3 p-2"></div>
+                            </a>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->profile->user_id }}/edit" role="button">
+                                        {{ __('Modifier le profile') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -68,8 +78,10 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+
                                 </div>
                             </li>
+                            </div>
                         @endguest
                     </ul>
                 </div>

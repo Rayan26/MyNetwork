@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 
-class ProfileController extends Controller
+class ProfilesController extends Controller
 {
     //
     public function index(User $user)
